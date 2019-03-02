@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Έλεγχος αν υπάρχει δίσκος USB και αν υπάρχει συνεχίζεται η διαδικασία#
 ########################################################################
 
@@ -29,3 +30,24 @@ done
 ########################################################################
 
 echo "Συνέχεια διαδιακασίας..."
+
+FILE=$(zenity --file-selection --title="Επιλέξτε αρχείο" --file-filter="*.iso")
+
+echo $diskvar $FILE
+
+if [[ -z $FILE ]];
+	then
+	echo "Δεν έχετε επιλέξει αρχείο...τερματισμός"
+	exit 0
+	else
+
+
+(
+  sleep 5
+  echo "Προετοιμασία εγκατάστασης"
+  sleep 1	
+  echo "Εγγραφή USB"
+  gksudo dd if=$FILE of=$diskvar bs=1MB
+) | zenity --title="zenity USB creator" --width=350 --progress --pulsate --auto-close
+
+fi 
