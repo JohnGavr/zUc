@@ -1,5 +1,5 @@
 # zenity USB creator (zUc)
-## Script δημιουργίας liveUSB σε bash και zenity
+## Script δημιουργίας liveUSB σε zenity
 
 To παρόν script είναι μια απόπειρα απλοποίησης της διαδικασίας μέσω της οποίας δημιουργούμε liveUSB για τη δοκιμή διανομών στο Linux.
 
